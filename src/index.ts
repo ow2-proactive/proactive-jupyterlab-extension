@@ -24,7 +24,7 @@ import {
  */
 const plugin: JupyterFrontEndPlugin<void> = {
   activate,
-  id: 'my-extension-name:buttonPlugin',
+  id: 'proactive-jupyterlab-extension:buttonPlugin',
   autoStart: true
 };
 

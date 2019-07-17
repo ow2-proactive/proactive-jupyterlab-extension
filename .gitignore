@@ -2,6 +2,7 @@
 lib/
 node_modules/
 *.egg-info/
+.idea/
 .ipynb_checkpoints
 package-lock.json
 tsconfig.tsbuildinfo
