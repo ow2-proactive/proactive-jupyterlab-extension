@@ -1,21 +1,21 @@
 import {
-  IDisposable, DisposableDelegate
+    IDisposable, DisposableDelegate
 } from '@phosphor/disposable';
 
 import {
-  JupyterFrontEnd, JupyterFrontEndPlugin
+    JupyterFrontEnd, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
 import {
-  ToolbarButton
+    ToolbarButton
 } from '@jupyterlab/apputils';
 
 import {
-  DocumentRegistry
+    DocumentRegistry
 } from '@jupyterlab/docregistry';
 
 import {
-  NotebookActions, NotebookPanel, INotebookModel
+    NotebookActions, NotebookPanel, INotebookModel
 } from '@jupyterlab/notebook';
 
 
@@ -23,9 +23,9 @@ import {
  * The plugin registration information.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  activate,
-  id: 'proactive-jupyterlab-extension:buttonPlugin',
-  autoStart: true
+    activate,
+    id: 'proactive-jupyterlab-extension:buttonPlugin',
+    autoStart: true
 };
 
 
@@ -34,32 +34,33 @@ const plugin: JupyterFrontEndPlugin<void> = {
  */
 export
 class ButtonExtension implements DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel> {
-  /**
-   * Create a new extension object.
-   */
-  createNew(panel: NotebookPanel, context: DocumentRegistry.IContext<INotebookModel>): IDisposable {
-    let callback = () => {
-      NotebookActions.runAll(panel.content, context.session);
-    };
-    let button = new ToolbarButton({
-      className: 'myButton',
-      iconClassName: 'fa fa-fast-forward',
-      onClick: callback,
-      tooltip: 'Run All'
-    });
+    /**
+     * Create a new extension object.
+     */
+    createNew(panel: NotebookPanel, context: DocumentRegistry.IContext<INotebookModel>): IDisposable {
+        let callback = () => {
+            NotebookActions.runAll(panel.content, context.session);
+        };
+        
+        let button = new ToolbarButton({
+            className: 'myButton',
+            iconClassName: 'fa fa-fast-forward',
+            onClick: callback,
+            tooltip: 'Run All'
+        });
 
-    panel.toolbar.insertItem(0, 'runAll', button);
-    return new DisposableDelegate(() => {
-      button.dispose();
-    });
-  }
+        panel.toolbar.insertItem(0, 'runAll', button);
+        return new DisposableDelegate(() => {
+            button.dispose();
+        });
+    }
 }
 
 /**
  * Activate the extension.
  */
 function activate(app: JupyterFrontEnd) {
-  app.docRegistry.addWidgetExtension('Notebook', new ButtonExtension());
+    app.docRegistry.addWidgetExtension('Notebook', new ButtonExtension());
 };
 
 
