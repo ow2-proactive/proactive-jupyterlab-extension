@@ -2,6 +2,7 @@
 
 JupyterLab extension for the Proactive Kernel
 
+[![bgslibrary](https://raw.githubusercontent.com/ow2-proactive/proactive-jupyterlab-extension/master/doc/demo.gif)](https://github.com/ow2-proactive/proactive-jupyterlab-extension/blob/master/doc/demo.mov)
 
 ## Requirements
 
