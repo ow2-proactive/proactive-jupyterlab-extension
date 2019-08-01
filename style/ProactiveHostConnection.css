@@ -1,0 +1,22 @@
+.p-text {
+    font-size: 10px !important;
+}
+
+.ui-button-connect {
+    font-size: 10px !important;
+}
+
+.ui-input-text-host{
+    font-size: 10px !important;
+    width: 130px !important;
+}
+
+.ui-input-text-user{
+    font-size: 10px !important;
+    width: 50px !important;
+}
+
+.ui-input-text-pass{
+    font-size: 10px !important;
+    width: 50px !important;
+}
